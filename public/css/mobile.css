@@ -1,0 +1,89 @@
+.container{
+  width: 100%;
+}
+
+body{
+  font-size: 10px;
+}
+
+#form-Login{
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-align: center;
+  color:white;
+  font-size: 10px;
+  width: 100%;
+}
+
+#snc-logo{
+  display: none;
+}
+
+#corpo{
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  width: auto;
+}
+
+#menu-dir{
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 5px;
+  line-height: 10px;
+  border: none;
+  border-color: blue;
+  text-align: center;
+  float: none;
+}
+
+#menu-dir li{
+  border: none;
+  font-size: 10px;
+  list-style: none;
+  display: inline;
+  text-align: center;
+}
+
+#menu-dir ul{
+}
+
+
+.texto-corpo{
+  font-size: 10px;
+}
+
+#menu-topo{
+  margin-top: 0;
+}
+
+#title-logo{
+  display:none;
+}
+
+#adzaoMaroto{
+  display:none;
+}
+
+#form-cadastro{
+  color: white;
+  margin-left: 25%;
+}
+
+#anunciar{
+  color: white;
+  margin-left: 25%;
+  text-align: left;
+}
+
+#announce-title{
+  color: blue;
+  font-size: 20px;
+  margin-right: 5%;
+}
+
+#talktomeplease{
+  font-size: 25px;
+  color: blue;
+}

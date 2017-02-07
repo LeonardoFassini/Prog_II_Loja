@@ -1,0 +1,33 @@
+CREATE TABLE UsFi(
+	senha varchar(255) not null,
+	email varchar(255) not null,
+	ender varchar(40) not null,
+	nome varchar(20) not null,
+	cpf varchar (11) not null,
+	DtNa date not null,
+	constraint fk_emailUsFi_emailUsers foreign key(email) references users(email)
+);
+
+CREATE TABLE UsJur(
+	senha varchar(16) not null,
+	email varchar(16) not null,
+	ender varchar(40) not null,
+	nome varchar(20) not null,
+	Cnpj varchar(20) not null,
+	constraint fk_emailUsJur_emailUsers foreign key(email) references users(email)
+);
+
+CREATE TABLE Produto(
+	ID SERIAL,
+	Preco float not null,
+	PdV varchar(30) not null,
+	Tipo varchar(10) not null,
+	Proc varchar(40) not null,
+	Ram varchar(10) not null,
+	QAlug varchar(20) not null,
+	Dono varchar(20) not null,
+	Disp integer not null,
+	constraint pk_produto primary key(ID),	
+	constraint fk_dono foreign key(dono) references users(email),
+	constraint fk_Qalug foreign key(QAlug) references users(email)
+);

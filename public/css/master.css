@@ -1,0 +1,172 @@
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
+.container{
+    min-height: calc(100vh - 54px);
+}
+
+footer{
+  height: 20px;
+  background-color: #333333;
+  text-align: center;
+  color: white;
+  bottom: 0;
+  clear: both;
+}
+body{
+  background-color: #333333;
+  margin:0;
+  padding: 0;
+  height: 100%;
+  margin: 10px;
+  width: auto;
+}
+
+.error {color: #FF0000;}
+
+#adzaoMaroto{
+  float: left;
+  width: 25.5%;
+  margin-top: 8%;
+}
+
+img#ad{
+  width: 100%;
+}
+
+#corpo{
+  margin-left: 33%;
+  margin-right: 15%;
+  text-align: center;
+  width: 49%;
+}
+
+#menu-topo{
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+#form-Login{
+  float:right;
+  color:white;
+  width: 40%;
+}
+
+#snc-logo{
+  float: left;
+  width: 8%;
+  height: 50px;
+}
+
+#title-logo{
+  margin-left: 1%;
+  width: 50%;
+  height: 50px;
+}
+
+.rodape{
+}
+
+ul li a:hover{
+  color: yellow;
+}
+
+#menu-dir{
+  line-height: 50px;
+  margin-right: 1%;
+  margin-top: 2%;
+  float:right;
+  border-style: solid;
+  border-color: blue;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+#menu-dir li{
+  border-top: 5px;
+  font-size: 20px;
+  list-style: none;
+  text-align: center;
+}
+
+#menu-dir a{
+  text-decoration: none;
+  color: #b8d2e1;
+  font-family: 'Raleway', sans-serif;
+}
+
+#menu-dir ul{
+  margin-top: 0;
+}
+
+
+#anunciar{
+  color: white;
+  margin-left: 30%;
+  margin-right:45%;
+  text-align: left;
+}
+
+#form-cadastro{
+  color: white;
+  text-align: left;
+}
+
+#s-button{
+  margin-left: 40%;
+}
+
+#r-button{
+  margin-left: 40%;
+}
+
+h1{
+  text-align: center;
+  color: #DCDCDC;
+}
+
+#master-title{
+  color: blue;
+  font-size: 28px;
+  text-align: center;
+}
+
+.sobre-fonte{
+  color: white;
+  font-size: 18px;
+  text-align: left;
+}
+
+.texto-corpo{
+  color: white;
+  font-size: 18px;
+  text-align: justify;
+}
+
+#announce-title{
+  color: blue;
+  font-size: 30px;
+  margin-right: 5%;
+}
+
+#talktomeplease{
+  font-size: 40px;
+  color: blue;
+}
+
+#menu-dir a:hover{
+  color:yellow;
+}
+
+.gambiarra{
+  font-size: 30px;
+  color: blue;
+}
+
+.clear{
+  clear: both;
+}
