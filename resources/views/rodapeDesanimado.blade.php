@@ -1,5 +1,3 @@
-<footer>
-  <p>
-    Copyright (c) 2016 Copyright Holder All Rights Reserved.
-  </p>
+<footer class="blog-footer">
+  <p>Copyright (c) 2016 Copyright Holder All Rights Reserved.</p>
 </footer>

@@ -1,78 +1,86 @@
 @extends('layouts.layout')
 @section('corpo')
-  <?php
-  $modelopc = $modeloprocessador = $modeloram = $modelopv = $precopc = $modelopcErr = $modeloprocessadorErr = $modeloramErr = $modelopvErr = $precopcErr = "";
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (empty($_POST[modelopc])) {
-      $modelopcErr = "NAO DEIXA EM BRANCO";
-    }
-    else {
-      $modelopc = test_input($_POST["modelopc"]);
-    }
-    if (empty($_POST[modeloprocessador])) {
-      $modeloprocessadorErr = "NAO DEIXA EM BRANCO";
-    }
-    else {
-      $modeloprocessador = test_input($_POST["modeloprocessador"]);
-    }
-    if (empty($_POST[modeloram])) {
-      $modeloramErr = "NAO DEIXA EM BRANCO";
-    }
-    else{
-      $modeloram = test_input($_POST["modeloram"]);
-    }
-    if (empty($_POST[modelopv])) {
-      $modelopvErr = "NAO DEIXA EM BRANCO";
-    }
-    else {
-      $modelopv = test_input($_POST["modelopc"]);
-    }
-    if (empty($_POST[precopc])) {
-      $precopcErr = "NAO DEIXA EM BRANCO";
-    }
-    else {
-      $precopc = test_input($_POST["precopc"]);
-    }
-    $username = $password = $usernameErr = $passwordErr = ""; // Not Working  from here
-    if(empty($_POST["username"])){
-      $usernameErr = "Login Invalido esqueceu a senha?";
-    }
-    else {
-      $username = test_input($_POST["username"]);
-    }
-    if(empty($_POST["username"])){
-      $passwordErr = "Senha invalida, esqueceu a senha?";
-    }
-    else {
-      $password = test_input($_POST["password"]); // Until here
-    }
-  }
+  <!-- Formulario para insercao no banco -->
 
-  function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
+  <h1> ANUNCIAR </h1>
+  <form method="post" action="/anunciado">
 
-  ?>
-  <h1 id=master-title> ANUNCIAR </h1>
-  <form id="anunciar" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <fieldset>
-      Tipo:<select id="selecionar-tipo" name="Tipo">
-        <option value="Empresa"> Empresa </option>
-        /select>
-        <p>Modelo: <input type="text" name="modelopc" value=""></p>
-        <span class="error">* <?php echo $modelopcErr;?></span>
-        <p>Processador: <input type="text" name="modeloprocessador" value=""></p>
-        <span class="error">* <?php echo $modeloprocessadorErr;?></span>
-        <p>RAM: <input type="text" name="modeloram" value=""></p>
-        <span class="error">* <?php echo $modeloramErr;?></span>
-        <p>Placa de vídeo: <input type="text" name="modelopv" value=""></p>
-        <span class="error">* <?php echo $modelopvErr;?></span>
-        <p>Preço: <input type="text" name="precopc" value=""></p>
-        <span class="error">* <?php echo $precopcErr;?></span>
-        <p><input type="submit" name="submitform" value="Enviar"></p>
-      </fieldset>
-    </form>
-    @stop
+    @if (Auth::guest())
+      <p>Voce nao está logado! Para anunciar, primeiro se logue!</p>
+    @else
+      <!-- email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <p class="form-control-static"> {{ Auth::user()->email }}</p>
+      </div>
+
+      <!-- Tipo de pc -->
+      <div class="form-group">
+        <label for="modelopc"> Tipo do computador </label>
+        <select class="form-control" id="modelopc">
+          <option> Notebook </option>
+          <option> Desktop </option>
+        </select>
+      </div>
+
+      <!-- Modelo do pc -->
+      <div class="form-group">
+        <label for="modeloprocessador"> Modelo do Processador </label>
+        <select class="form-control" id="modeloprocessador">
+          <option> Dual core </option>
+          <option> Quad core </option>
+          <option> i3 </option>
+          <option> i5 </option>
+          <option> i7 </option>
+          <option> Amd </option>
+        </select>
+      </div>
+
+      <!-- Ram -->
+      <div class"form-group">
+        <label for="modeloram"> Modelo da ram </label>
+        <select class="form-control" id="modeloram">
+          <option> 512mb </option>
+          <option> 1gb-3gb </option>
+          <option> 4gb-6gb </option>
+          <option> 6gb-8gb </option>
+          <option> 9gb-16gb </option>
+          <option> 16gb+ </option>
+        </select>
+      </div>
+
+      <!-- placa de video -->
+      <div class="form-group">
+        <label for="modeloplaca"> Modelo da placa de video </label>
+        <select class="form-control" id="modeloplaca">
+          <option> 512mb </option>
+          <option> 1gb </option>
+          <option> 2gb </option>
+          <option> 4gb </option>
+          <option> 8gb </option>
+        </select>
+      </div>
+
+      <!-- preco -->
+      <div class="form-group">
+        <label class="form-group"> Preço </label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"> Anunciar </button>
+      </div>
+      @endif
+  </div>
+  @stop
+
+  @section('navbar')
+  <ul class="nav navbar-nav">
+  	<li><a href="alugar"> Alugar </a> </li>
+  	<li class="active"><a href="anunciar">Anunciar</a></li>
+  	<li><a href="maisAlugados">Mais Alugados</a></li>
+  	<li><a href="maisAlugou">Mais Alugou</a></li>
+  	<li><a href="sobre">Sobre</a></li>
+  	<li><a href="faleConosco">Fale Conosco</a></li>
+  </ul>
+  @stop

@@ -45,16 +45,7 @@
 
 				<div class="collapse navbar-collapse" id="navbar-collapse-1">
 
-					<ul class="nav navbar-nav">
-						<li class="<%= 'active' if current_page?(alugar)%>"><a href="alugar"> Alugar </a> </li>
-						<li><a href="anunciar">Anunciar</a></li>
-						<li><a href="alugar">Alugar</a></li>
-						<li><a href="maisAlugados">Mais Alugados</a></li>
-						<li><a href="maisAlugou">Mais Alugou</a></li>
-						<li><a href="cadastrar">Cadastrar</a></li>
-						<li><a href="sobre">Sobre</a></li>
-						<li><a href="faleConosco">faleConosco</a></li>
-					</ul>
+					@yield('navbar')
 
 
 					<!-- Direita da navbar -->
