@@ -1,4 +1,4 @@
-<?php /* Leonardo Tironi Fassini */ ?>
+<?php /* Leonardo Tironi Fassini é um deus */ ?>
 <!DOCTYPE html>
 <html>
 <head>
