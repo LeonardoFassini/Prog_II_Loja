@@ -21,7 +21,7 @@ class CreateProdutosTable extends Migration
             $table->string('Tipo', 20);
             $table->string('Processador', 20);
             $table->string('ram', 20);
-            $table->string('Qalugou');
+            $table->string('Qalugou')->nullable();
             $table->string('Dono');
             $table->boolean('Disponibilidade');
             $table->foreign('Dono')->references('email')->on('users');

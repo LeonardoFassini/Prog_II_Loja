@@ -3,8 +3,9 @@
   <!-- Formulario para insercao no banco -->
 
   <h1> ANUNCIAR </h1>
-  <form method="post" action="/anunciar">
-
+  <form method="POST" action="/anunciar/create">
+    {{ csrf_field() }}
+    <hr>
     @if (Auth::guest())
       <p>Voce nao está logado! Para anunciar, primeiro se logue!</p>
     @else
@@ -14,10 +15,12 @@
         <p class="form-control-static"> {{ Auth::user()->email }}</p>
       </div>
 
+      <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+
       <!-- Tipo de pc -->
       <div class="form-group">
         <label for="modelopc"> Tipo do computador </label>
-        <select class="form-control" id="modelopc">
+        <select class="form-control" id="modelopc" name="modelopc">
           <option> Notebook </option>
           <option> Desktop </option>
         </select>
@@ -26,7 +29,7 @@
       <!-- Modelo do pc -->
       <div class="form-group">
         <label for="modeloprocessador"> Modelo do Processador </label>
-        <select class="form-control" id="modeloprocessador">
+        <select class="form-control" id="modeloprocessador" name="modeloprocessador">
           <option> Dual core </option>
           <option> Quad core </option>
           <option> i3 </option>
@@ -36,23 +39,10 @@
         </select>
       </div>
 
-      <!-- Ram -->
-      <div class"form-group">
-        <label for="modeloram"> Modelo da ram </label>
-        <select class="form-control" id="modeloram">
-          <option> 512mb </option>
-          <option> 1gb-3gb </option>
-          <option> 4gb-6gb </option>
-          <option> 6gb-8gb </option>
-          <option> 9gb-16gb </option>
-          <option> 16gb+ </option>
-        </select>
-      </div>
-
       <!-- placa de video -->
       <div class="form-group">
         <label for="modeloplaca"> Modelo da placa de video </label>
-        <select class="form-control" id="modeloplaca">
+        <select class="form-control" id="modeloplaca" name="modeloplaca">
           <option> 512mb </option>
           <option> 1gb </option>
           <option> 2gb </option>
@@ -61,10 +51,24 @@
         </select>
       </div>
 
+      <!-- Ram -->
+      <div class"form-group">
+        <label for="modeloram"> Modelo da ram </label>
+        <select class="form-control" id="modeloram" name="modeloram">
+          <option> 512mb </option>
+          <option> 1gb-3gb </option>
+          <option> 4gb-6gb </option>
+          <option> 6gb-8gb </option>
+          <option> 9gb-16gb </option>
+          <option> 16gb+ </option>
+        </select>
+      </div>
+      <hr>
+
       <!-- preco -->
       <div class="form-group">
         <label class="form-group"> Preço </label>
-        <input type="text">
+        <input type="text" id="preco" name="preco">
       </div>
 
       <div class="form-group">

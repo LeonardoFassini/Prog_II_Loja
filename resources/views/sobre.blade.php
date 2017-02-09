@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('corpo')
 <h1 id=master-title> SOBRE </h1>
+<hr>
 <p class="sobre-fonte">
   Oi, meu nome é Leonardo, academico da uffs c:
 </p>

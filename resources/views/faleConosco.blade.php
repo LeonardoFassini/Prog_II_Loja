@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 @section('corpo')
+<h1> FALE CONOSCO </h1>
+<hr>
+
 <p id=talktomeplease>
   LEEHTIRONI@GMAIL.COM!
 </p>

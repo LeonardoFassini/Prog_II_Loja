@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\produtos;
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProdutoController extends Controller
 {
@@ -15,7 +16,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('anunciar');
+        return view('/anunciar.create');
     }
 
     /**
@@ -36,8 +37,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-
-      return view(anunciar);
+      $produtos = new produtos;
+      $produtos->Preco = $request->preco;
+      $produtos->PlacaDeVideo = $request->modeloplaca;
+      $produtos->Tipo = $request->modelopc;
+      $produtos->Processador = $request->modeloprocessador;
+      $produtos->ram = $request->modeloram;
+      $produtos->Dono = $request->email;
+      $produtos->Disponibilidade = 1;
+      $produtos->save() ;
+      return view('/anunciar.index', $request);
     }
 
     /**

@@ -16,16 +16,6 @@
 </head>
 
 <body>
-	<script>
-    var docURL = document.URL;
-    var linksList = document.querySelectorAll('a[href]');
-    for (var i = 0; i< linksList.length; i++) {
-        var link = linksList[i];
-        if (link.href === docURL) {
-            link.className += 'active';
-        }
-    }
-</script>
 	<div id="app">
 		<!-- Navbar inteira -->
 		<nav class="navbar navbar-default navbar-static-top">
