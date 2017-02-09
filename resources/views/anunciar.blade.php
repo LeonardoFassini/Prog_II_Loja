@@ -3,7 +3,7 @@
   <!-- Formulario para insercao no banco -->
 
   <h1> ANUNCIAR </h1>
-  <form method="post" action="/anunciado">
+  <form method="post" action="/anunciar">
 
     @if (Auth::guest())
       <p>Voce nao está logado! Para anunciar, primeiro se logue!</p>

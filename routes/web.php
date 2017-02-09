@@ -27,9 +27,9 @@ Route::get('/maisAlugou', function(){
   return view('maisAlugou');
 });
 
-Route::get('/anunciar', 'produtoController@index');
+Route::get('/anunciar', 'ProdutoController@index');
 
-Route::post('/anunciar', 'produtoController@store');
+Route::post('/anunciar', 'ProdutoController@store');
 
 Route::get('/alugar', function(){
   return view('alugar');
