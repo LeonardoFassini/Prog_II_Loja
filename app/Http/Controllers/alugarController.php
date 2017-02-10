@@ -7,7 +7,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProdutoController extends Controller
+class alugarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('/anunciar.create');
+      $produto = produtos::all();
+      return view('/alugar.visualizar', ['produto' => produtos::all()]);
     }
 
     /**
@@ -37,16 +38,7 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-      $produtos = new produtos;
-      $produtos->Preco = $request->preco;
-      $produtos->PlacaDeVideo = $request->modeloplaca;
-      $produtos->Tipo = $request->modelopc;
-      $produtos->Processador = $request->modeloprocessador;
-      $produtos->ram = $request->modeloram;
-      $produtos->Dono = $request->email;
-      $produtos->Disponibilidade = 1;
-      $produtos->save() ;
-      return view('/anunciar.index', $request);
+        //
     }
 
     /**
@@ -66,9 +58,13 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $email)
     {
-      return view('/anunciar.edit', ['produto' => produtos::find($id)]);
+      $produtos = produtos::find($id);
+      $produtos->Disponibilidade = 0;
+      $produtos->Qalugou = $email;
+      $produtos->save();
+      return redirect('/alugar/rented');
     }
 
     /**
@@ -78,25 +74,28 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-      $produtos = produtos::find($request->id);
-      $produtos->Preco = $request->preco;
-      $produtos->PlacaDeVideo = $request->modeloplaca;
-      $produtos->Tipo = $request->modelopc;
-      $produtos->Processador = $request->modeloprocessador;
-      $produtos->ram = $request->modeloram;
-      $produtos->Dono = $request->email;
-      $produtos->save();
-      return view('/anunciar.updated');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function rented(){
+      return view('/alugar.rented');
+    }
+
+    public function unrent($id){
+      $produtos = produtos::find($id);
+      $produtos->Disponibilidade = 1;
+      $produtos->Qalugou = NULL;
+      $produtos->save();
+      return redirect('alugar/unrented');
+    }
+
+    public function unrented(){
+      return view('/alugar.unrented');
+    }
+
     public function destroy($id)
     {
         //

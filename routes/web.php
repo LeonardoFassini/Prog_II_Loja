@@ -1,60 +1,40 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-// Views etc
+// Views front end e etc
 Route::get('/', function () {
   return view('index');
 });
-
 Route::get('/faleConosco', function(){
   return view('faleConosco');
 });
-
 Route::get('/maisAlugados', function(){
   return view('maisAlugados');
 });
-
 Route::get('/maisAlugou', function(){
   return view('maisAlugou');
 });
-
-Route::get('/anunciar', 'ProdutoController@index');
-
-Route::post('/anunciar/create', 'ProdutoController@store');
-
-Route::get('/alugar', function(){
-  return view('alugar');
-});
-
 Route::get('/sobre', function(){
   return view('sobre');
 });
 
-Route::get('/welcome', function(){
-  return view('welcome');
-});
 
 
-// Auths
+// Detalhes do anuncio e cadastro do anuncio
+Route::get('/anunciar', 'ProdutoController@index');
+Route::post('/anunciar/create', 'ProdutoController@store');
+Route::post('/anunciar/update/', 'ProdutoController@update');
+Route::get('/anunciar/edit/{id}', 'ProdutoController@edit');
+
+
+
+// Detalhes da lista de produtos, alem de alugar
+Route::get('/alugar', 'alugarController@index');
+Route::get('/alugar/rent/{id}/{email}', 'alugarController@edit');
+Route::get('/alugar/rented', 'alugarController@rented');
+Route::get('/alugar/unrent/{id}', 'alugarController@unrent');
+Route::get('alugar/unrented', 'alugarController@unrented');
+
+
+// Auths de login e register
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
-
-//DB
-
-/* Route::get('submit', function(){
-  $users = DB::insert("insert into produto(preco, PlacaDeVideo, Tipo, Processador, ram, Qalugou, Dono, Disponibilidade) values ")
-}
-
-
-
-); */
