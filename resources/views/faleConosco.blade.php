@@ -3,9 +3,9 @@
 <h1> FALE CONOSCO </h1>
 <hr>
 
-<p id=talktomeplease>
-  LEEHTIRONI@GMAIL.COM!
-</p>
+<h2>
+  LEEHTIRONI@GMAIL.COM! EHNOISSSSSSSSSSSS
+</h2>
 @stop
 
 @section('navbar')

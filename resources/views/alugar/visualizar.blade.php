@@ -2,6 +2,9 @@
 @section('corpo')
 <h1> ALUGAR </h1>
 <hr>
+@if (Auth::guest())
+<p>Voce nao está logado! Para alugar, primeiro se logue!</p>
+@else
 <div class="panel panel-default">
 	<div class="panel-heading text-center">Todos os computadores </div>
 	<div class="table-responsive">
@@ -18,17 +21,18 @@
 				<th>Alugar</th>
 				<th>Editar</th>
 				<th>Devolver</th>
+				<th>Remover</th>
 			</thead>
 
 			<tbody>
 				@foreach($produto as $produto)
 				<tr>
-					<td><?php echo ($produto->Preco) ?></td>
-					<td><?php echo $produto->PlacaDeVideo?></td>
 					<td><?php echo $produto->Tipo?></td>
 					<td><?php echo $produto->Processador?></td>
 					<td><?php echo $produto->ram?></td>
+					<td><?php echo $produto->PlacaDeVideo?></td>
 					<td><?php echo $produto->Dono?></td>
+					<td><?php echo ($produto->Preco) ?></td>
 					<td>
 						@if ($produto->Disponibilidade == 1)
 						<?php echo "Disponível" ?>
@@ -36,11 +40,24 @@
 						<?php echo "Indisponível" ?>
 						@endif
 					</td>
-					<td><a href="/alugar/rent/<?php echo $produto->id?>/<?php echo Auth::user()->email?>" <button type="button" class="btn btn-default">Alugar</button> </a> </td>
-					<td><a href="/anunciar/edit/<?php echo $produto->id ?>" <button type="button" class="btn btn-default">Editar</button> </a></td>
 					<td>
-						@if ($produto->Qalugou == Auth::user()->email && $produto->disponibilidade == 0)
+						@if ($produto->Disponibilidade == 1)
+						<a href="/alugar/rent/<?php echo $produto->id?>/<?php echo Auth::user()->email?>" <button type="button" class="btn btn-default">Alugar</button> </a>
+						@endif
+					</td>
+					<td>
+						@if ($produto->Dono == Auth::user()->email)
+						<a href="/anunciar/edit/<?php echo $produto->id ?>" <button type="button" class="btn btn-default">Editar</button> </a>
+						@endif
+					</td>
+					<td>
+						@if ($produto->Qalugou == Auth::user()->email && $produto->Disponibilidade == 0)
 						<a href="/alugar/unrent/<?php echo $produto->id?>" <button type="button" class="btn btn-default">Devolver</button> </a>
+						@endif
+					</td>
+					<td>
+						@if ($produto->Dono == Auth::user()->email && $produto->Disponibilidade == 1)
+						<a href="/anunciar/destroy/<?php echo $produto->id?>" <button type="button" class="btn btn-default">Remover</button></a>
 						@endif
 					</td>
 				</tr>
@@ -49,7 +66,7 @@
 		</table>
 	</div>
 </div>
-
+@endif
 @stop
 
 @section('navbar')

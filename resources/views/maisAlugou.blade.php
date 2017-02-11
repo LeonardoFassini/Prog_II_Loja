@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 @section('corpo')
-<p class="gambiarra">
-  PAGINA EM CONSTRUÇÃO
-</p>
-<p class="gambiarra">
-  AGUARDE POR ATUALIZAÇÕES!
-</p>
-@endsection
+<h1> MAIS ALUGOU </h1>
+<hr>
+
+<h2>
+  APLICACAO AINDA NAO IMPLEMENTADA, AGUARDE POR ATUALIZAÇÕES!
+<h2>
+@stop
 
 @section('navbar')
 <ul class="nav navbar-nav">

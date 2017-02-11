@@ -24,7 +24,8 @@ Route::get('/anunciar', 'ProdutoController@index');
 Route::post('/anunciar/create', 'ProdutoController@store');
 Route::post('/anunciar/update/', 'ProdutoController@update');
 Route::get('/anunciar/edit/{id}', 'ProdutoController@edit');
-
+Route::get('/anunciar/destroy/{id}', 'ProdutoController@destroy');
+Route::get('/anunciar/destroyed', 'ProdutoController@destroyed');
 
 
 // Detalhes da lista de produtos, alem de alugar

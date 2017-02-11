@@ -3,10 +3,10 @@
 <h1> ANUCIAR </h1>
 <hr>
 <div class="alert alert-success text-center">
-  <strong>Successo!</strong> Seu produto foi devolvido!
+  <strong>Successo!</strong> Seu produto foi removido!
 </div>
 <div class="text-center">
-<a href="/"><button type="button" class="btn btn-success"> Inicio </button></a>
+<a href="/"><button type="button" class="btn btn-success text-center"> Inicio </button></a>
 </div>
 @stop
 

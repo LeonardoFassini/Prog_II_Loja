@@ -99,6 +99,11 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        produtos::destroy($id);
+        return redirect('/anunciar/destroyed');
+    }
+
+    public function destroyed(){
+      return view('/anunciar.destroyed');
     }
 }
