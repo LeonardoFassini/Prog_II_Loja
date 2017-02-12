@@ -4,8 +4,10 @@
 <hr>
 <div class="alert alert-success text-center">
   <strong>Successo!</strong> Seu produto foi anunciado!
-</div class="text-center">
+</div>
+<div class="text-center">
 <a href="/"><button type="button" class="btn btn-success"> Inicio </button></a>
+</div>
 @stop
 
 @section('navbar')
